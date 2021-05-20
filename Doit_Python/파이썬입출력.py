@@ -1,18 +1,37 @@
+
+#https://velog.io/@janeljs/python-for-coding-test-4
+
+# https://velog.io/@yeseolee/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%85%EB%A0%A5-%EC%A0%95%EB%A6%ACsys.stdin.readline
+#맨 첫줄 Test case를 입력받을 때는 input()을 사용해도 무방합니다.
 import sys
+T = int(input()) #Test case
+for i in range(T):
+ a,b = map(int, sys.stdin.readline().split())
+ print(a+b)
 
-# T = int(input()) #Test case
-# for i in range(T):
-#     a,b = map(int, sys.stdin.readline().split())
-#     print(a+b)
+#한 개의 정수를 입력받을 때
+import sys
+a = int(sys.stdin.readline()) #개행문자, 형변환 제거
 
+#정해진 개수의 정수를 한줄에 입력받을 때  -> IDE에서는 안됨
+import sys
+a,b,c = map(int,sys.stdin.readline().split())
 
+#임의의 개수의 정수를 한줄에 입력받아 리스트에 저장할 때(',' 로 구분할 때)
+import sys
+data = list(map(int,sys.stdin.readline().split(',')))
 
+#임의의 개수의 정수를 n줄 입력받아 2차원 리스트에 저장할 때
 n = int(sys.stdin.readline())
-
 for i in range(n):
 #    a, b = map(int, sys.stdin.readline().split())
     arr = sys.stdin.readline().split()
     print(int(arr[0]) + int(arr[1]))
+
+#문자열 n줄을 입력받아 리스트에 저장할 때
+import sys
+n = int(sys.stdin.readline())
+data = [sys.stdin.readline().strip() for i in range(n)]
 
 
 #한 줄씩 읽고 한 줄씩 출력
@@ -46,6 +65,38 @@ print(lines)
 # 자이썬 완벽 안내서!
 #파이썬 책
 https://jythonbook-ko.readthedocs.io/en/latest/InputOutput.html
+예제 5-1. sys.stdin 사용하기
+
+# 명령행에서 값을 얻어 변수에 저장
+>>> import sys
+>>> fav_team = sys.stdin.readline()
+Cubs
+>>> sys.stdout.write("My favorite team is: %s" % fav_team)
+My favorite team is: Cubs
+
+예제 5-3. 시스템 환경 변수를 얻고 변경하기
+
+>>> import os
+>>> os.environ["HOME"]
+'/Users/juneau'
+# 파이썬 세션을 위한 홈 디렉토리 바꾸기
+>>> os.environ["HOME"] = "/newhome"
+>>> os.environ["HOME"]
+'/newhome'
+
+예제 5-4. sys.argv 사용하기
+
+# sysargv_print.py – 명령줄에서 제공한 인수를 모두 출력
+import sys
+for sys.args in sys.argv:
+    print sys.args
+# 사용법
+>>> jython sysargv_print.py test test2 "test three"
+sysargv_print.py
+test
+test2
+test three
+
 
 # 파일에 행을 쓰고 flush하고 닫기
 >>> my_file = open('mynewfile.txt','w')
@@ -84,12 +135,15 @@ https://jythonbook-ko.readthedocs.io/en/latest/InputOutput.html
 0L
 # 파일의 행에 대하여 되풀이
 >>> for line in my_file:
-...     print line
+...     print (line)     #print(line.strip())
 ...
 This is the first line of text.
 This is the second line of text.
 This is the last line of text.
 
 
-
-https://jythonbook-ko.readthedocs.io/en/latest/InputOutput.html
+#while readline
+while True:
+    line = my_file.readline().strip()
+    if not line: break
+    print(line)
