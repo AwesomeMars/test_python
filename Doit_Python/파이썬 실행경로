@@ -1,0 +1,19 @@
+import os
+path= os.path.dirname(os.path.abspath(__file__))
+print(path)
+
+print(os.path.dirname(os.path.abspath(__file__)))
+
+
+
+윈도우
+파이썬 기본 설치 경로
+C:\Users\HwangInYoung\AppData\Local\Programs\Python\Python37
+위의 경로에 파이썬이 설치되어 있습니다
+
+C 드라이브 -> User -> " 자신이 설정해놓은 이름 "-> AppData -> Local -> Programs
+-> Python -> Python버전명
+
+import sys
+cmd 창 -> python -> import sys -> sys.executable
+위의 경로를 따라서 들어가시면 됩니다
