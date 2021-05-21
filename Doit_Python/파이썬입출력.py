@@ -141,9 +141,21 @@ This is the first line of text.
 This is the second line of text.
 This is the last line of text.
 
-
 #while readline
 while True:
     line = my_file.readline().strip()
     if not line: break
     print(line)
+
+
+#파이썬 텍스트 파일에서 줄을 읽고 역순으로 새 텍스트 파일에 저장
+#https://codesample-factory.tistory.com/1592
+
+f = open("text.txt", "rb")
+s = f.readlines()
+f.close()
+f = open("newtext.txt", "wb")
+s.reverse()
+for item in s:
+  print>>f, item
+f.close()
